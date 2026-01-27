@@ -18,11 +18,15 @@ private:
 };
 
 Tile::Tile() {
-  this->tile_char = "0";
+  this->tile_char = '0';
 }
 
 void Tile::set_tile(char set_char) {
   this->tile_char = set_char;
+}
+
+char Tile::get_tile_char() {
+  return this->tile_char;
 }
 
 Tile::~Tile() {
