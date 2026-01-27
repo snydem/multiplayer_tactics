@@ -5,8 +5,14 @@
 
 int main() {
   // Create a test map
-  Map test(5, 5);
-  test.print_map();
+  Map test_0(5, 5);
+  test_0.print_map();
+
+  Map test_large(20, 20);
+  test_large.print_map();
+
+  Map test_uneven(10, 20);
+  test_uneven.print_map();
   
   //Character* c1 = new Character();
   //c1->gen_stock_stats();

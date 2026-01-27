@@ -15,7 +15,7 @@ public:
 
   void generate_tiles();
   void print_map();
-  Tile* operator()(int x_index, int y_index);
+  Tile operator()(int x_index, int y_index);
 
   size_t x_size;
   size_t y_size;
@@ -51,13 +51,14 @@ void Map::generate_tiles() {
 void Map::print_map() {
   for (int i{0}; i < this->y_size; i++) {
     for (int j{0}; j < this->x_size; j++) {
-      Tile* tile_ptr = this->map[i][j];
-      std::cout << tile_ptr->tile_char << " " << std::endl;
+      Tile tile = this->map[i][j];
+      std::cout << tile.tile_char << " ";
     }
+    std::cout << std::endl;
   }
 }
 
-Tile* Map::operator()(int x_index, int y_index) {
+Tile Map::operator()(int x_index, int y_index) {
   return this->map[y_index][x_index];
 }
 
