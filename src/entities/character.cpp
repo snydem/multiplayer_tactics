@@ -54,10 +54,11 @@ class Character : public Entity {
     // Right now these are just scratch work
     void gen_stats(int seed);
     void gen_stock_stats();
-    void lvl_up(int seed);
+    //void lvl_up(int seed);
     void set_class(CharacterClass new_class);
 
     std::string class_name;
+    CharacterClass char_class;
 
     /* NOTE: Here in this context p = primary stat, s = secondary stat
      * c = combat stat
@@ -98,12 +99,10 @@ void Character::gen_stock_stats() {
   this->c_faith = 10;
 }
 
-void Character::set_class() {
+void Character::set_class(CharacterClass new_class) {
+  this->char_class = new_class;
 }
 
 Character::~Character() {
 }
-
-
-
 
