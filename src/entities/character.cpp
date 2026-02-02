@@ -45,6 +45,7 @@ CharacterClass::~CharacterClass() {
 class Character : public Entity {
   public:
     Character();
+    Character(std::string name);
     Character(Character &&) = default;
     Character(const Character &) = default;
     Character &operator=(Character &&) = default;
@@ -79,7 +80,10 @@ class Character : public Entity {
 
 };
 
-Character::Character(): Entity() {
+Character::Character() {
+}
+
+Character::Character(std::string name) : Entity(name) {
 }
 
 void Character::gen_stats(int seed) {
