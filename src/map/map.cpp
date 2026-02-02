@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include "tile.cpp"
 #include <stdio.h>
+#include <string>
 #include <iostream>
 
 class Map {
 public:
-  Map(size_t x_size, size_t y_size);
+  Map(std::string name, size_t x_size, size_t y_size);
   Map(Map &&) = default;
   Map(const Map &) = default;
   Map &operator=(Map &&) = default;
@@ -19,6 +20,7 @@ public:
 
   size_t x_size;
   size_t y_size;
+  std::string name;
 
 
 private: 
@@ -26,7 +28,8 @@ private:
 
 };
 
-Map::Map(size_t x_size, size_t y_size) {
+Map::Map(std::string name, size_t x_size, size_t y_size) {
+  this->name = name;
   this->x_size = x_size;
   this->y_size = y_size;
 
@@ -49,6 +52,7 @@ void Map::generate_tiles() {
 }
 
 void Map::print_map() {
+  std::cout << this->name << std::endl;
   for (int i{0}; i < this->y_size; i++) {
     for (int j{0}; j < this->x_size; j++) {
       Tile tile = this->map[i][j];
